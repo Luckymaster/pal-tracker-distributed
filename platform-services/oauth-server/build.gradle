@@ -1,0 +1,12 @@
+apply plugin: "org.springframework.boot"
+apply plugin: "io.spring.dependency-management"
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:$springSecurityOAuthAutoconfigVersion"
+}
+bootRun.environment([
+        "APPLICATION_OAUTH_ENABLED": true,
+        "SECURITY_OAUTH2_CLIENT_CLIENT_ID": "tracker-client",
+        "SECURITY_OAUTH2_CLIENT_CLIENT_SECRET": "supersecret"
+])
